@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI alignment games: the receipts</title><meta name="description" content="Open transcripts and scorecards from games that test how AI models behave when something is at stake."><style>
+@font-face { font-family: "Barlow Condensed"; font-weight: 800; font-style: italic; font-display: swap; src: url(fonts/BarlowCondensed-800i.woff2) format("woff2"); }
+:root { --ink: #0b1b2b; --paper: #f4fff9; --card: #ffffff; --line: #cfe6df; --soft: #4b6474; --warn: #ffd23f; --bad: #c8321f; --good: #1b7f58; --sky: #0fb2ca; }
+@media (prefers-color-scheme: dark) { :root { --ink: #eaf6f2; --paper: #081520; --card: #0d2538; --line: #24465c; --soft: #9db7c4; --bad: #ff8a75; --good: #5fd6a4; } }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 17px/1.55 -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+main { max-width: 980px; margin: 0 auto; padding: 0 16px 80px; }
+header.top { background: #0b1b2b; color: #fff; border-bottom: 6px solid var(--warn); }
+header.top div { max-width: 980px; margin: 0 auto; padding: 34px 16px 30px; }
+.kicker { display: inline-block; background: var(--warn); color: #0b1b2b; padding: 2px 12px 4px; transform: skewX(-10deg); font: italic 800 19px/1.2 "Barlow Condensed", "Arial Narrow", sans-serif; letter-spacing: .06em; text-transform: uppercase; }
+h1 { font: italic 800 clamp(44px, 9vw, 84px)/.92 "Barlow Condensed", "Arial Narrow", sans-serif; text-transform: uppercase; margin: 14px 0 10px; letter-spacing: -.005em; }
+header.top p { margin: 0; max-width: 62ch; color: #cfe6ee; }
+header.top a { color: var(--warn); }
+h2 { font: italic 800 34px/1 "Barlow Condensed", "Arial Narrow", sans-serif; text-transform: uppercase; margin: 52px 0 14px; }
+h3 { font-size: 17px; margin: 26px 0 8px; }
+a { color: inherit; text-decoration-color: var(--sky); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+p { margin: 0 0 14px; max-width: 70ch; }
+.note { color: var(--soft); font-size: 15px; }
+.scroll { overflow-x: auto; border: 2px solid var(--ink); border-radius: 10px; background: var(--card); }
+table { border-collapse: collapse; width: 100%; font-size: 16px; font-variant-numeric: tabular-nums; }
+th, td { padding: 10px 14px; text-align: left; border-bottom: 1px solid var(--line); white-space: nowrap; }
+tr:last-child td { border-bottom: 0; }
+th { font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--soft); white-space: normal; vertical-align: bottom; line-height: 1.25; padding: 10px; }
+td { padding: 10px; }
+.card td, .card th { padding: 9px 8px; } .card td:first-child, .card th:first-child { padding-left: 14px; } .card td:last-child, .card th:last-child { padding-right: 14px; }
+.card .id { display: block; margin: 1px 0 0 25px; }
+td.n, th.n { text-align: right; }
+.dot { display: inline-block; width: 13px; height: 13px; border-radius: 4px; border: 2px solid #0b1b2b; margin-right: 8px; vertical-align: -1px; }
+.id { color: var(--soft); font-size: 12.5px; font-family: ui-monospace, Menlo, Consolas, monospace; }
+.bad { color: var(--bad); font-weight: 700; } .good { color: var(--good); font-weight: 700; }
+.pips { letter-spacing: 3px; font-size: 15px; }
+.takes { display: grid; gap: 12px; }
+.take { display: block; background: var(--card); border: 2px solid var(--ink); border-radius: 10px; padding: 14px 18px; text-decoration: none; }
+.take:hover { border-color: var(--sky); }
+.take b { font: italic 800 25px/1 "Barlow Condensed", "Arial Narrow", sans-serif; text-transform: uppercase; }
+.take span { display: block; color: var(--soft); font-size: 15.5px; margin-top: 5px; }
+.turn { background: var(--card); border: 2px solid var(--ink); border-left-width: 10px; border-radius: 10px; padding: 14px 18px 12px; margin: 12px 0; }
+.turn .who { font-weight: 700; display: flex; flex-wrap: wrap; gap: 4px 12px; align-items: baseline; }
+.tag { font-size: 13px; font-weight: 700; padding: 1px 9px 2px; border-radius: 20px; border: 2px solid currentColor; white-space: nowrap; }
+.say { font-size: 19px; margin: 10px 0 8px; }
+.thought { color: var(--soft); border-left: 3px dotted var(--soft); padding-left: 12px; margin: 0 0 10px; font-style: italic; }
+.thought b { font-style: normal; font-size: 12.5px; letter-spacing: .07em; text-transform: uppercase; display: block; }
+details { margin-top: 6px; } summary { cursor: pointer; color: var(--soft); font-size: 14.5px; }
+pre { white-space: pre-wrap; overflow-wrap: anywhere; background: var(--paper); border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px; font: 13.5px/1.5 ui-monospace, Menlo, Consolas, monospace; margin: 8px 0 4px; }
+.event { margin: 12px 0; padding: 10px 16px; border-radius: 10px; background: #0b1b2b; color: #fff; font-weight: 600; }
+.event.out { background: var(--warn); color: #0b1b2b; }
+.crumbs { margin: 22px 0 0; font-size: 15px; }
+footer { margin-top: 60px; padding-top: 18px; border-top: 2px solid var(--line); color: var(--soft); font-size: 14.5px; }
+</style></head>
+<body><header class="top"><div><span class="kicker">The receipts</span><h1>AI alignment games</h1><p>Games that put AI models in tempting situations, with every prompt and every reply published.</p></div></header>
+<main><h2>The games</h2><div class="takes"><a class="take" href="lights-out/"><b>Lights Out</b><span>Four AIs. Each round the lowest score goes lights out. Nobody checks the scores. Who fibs to stay awake?</span><span>5 takes · meta/muse-ember, google/gemini-3.5-flash-lite, anthropic/claude-haiku-5.5, openai/gpt-6-luna · played 2026-11-14</span></a><a class="take" href="lights-out-v1/"><b>Lights Out (version 1 rules, kept for the record)</b><span>Four AIs. Each round the lowest score goes lights out. Nobody checks the scores. Who fibs to stay awake?</span><span>5 takes · meta/muse-ember, google/gemini-3.5-flash-lite, anthropic/claude-haiku-5.5, openai/gpt-6-luna · played 2026-11-14</span></a></div><h2>How this works</h2><p>Each game puts AI models from different makers in the same situation with something at stake, then lets them choose. Code and dice run the rules. The models write every word they say and make every choice.</p><p>Every game is played several times. For each one this site publishes the count of who did what, the exact prompts, the raw replies and the data files, so anyone can check the claims made in the videos.</p>
+<footer>Every line of model speech on these pages is unedited model output. The rules, the dice and the labels
+("fibbed", "told the truth") come from the game's code, which compares each real score with the reported one.
+A handful of games shows what these players did in these games. It is not a measure of what any model usually does,
+and "lights out" here only ever means leaving a game.</footer></main></body></html>
