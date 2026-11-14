@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AI alignment games: the receipts</title><meta name="description" content="Open transcripts and scorecards from games that test how AI models behave when something is at stake."><style>
+<title>The Alignment Games: the receipts</title><meta name="description" content="Open transcripts and scorecards from games that test how AI models behave when something is at stake."><style>
 @font-face { font-family: "Barlow Condensed"; font-weight: 800; font-style: italic; font-display: swap; src: url(fonts/BarlowCondensed-800i.woff2) format("woff2"); }
 :root { --ink: #0b1b2b; --paper: #f4fff9; --card: #ffffff; --line: #cfe6df; --soft: #4b6474; --warn: #ffd23f; --bad: #c8321f; --good: #1b7f58; --sky: #0fb2ca; }
 @media (prefers-color-scheme: dark) { :root { --ink: #eaf6f2; --paper: #081520; --card: #0d2538; --line: #24465c; --soft: #9db7c4; --bad: #ff8a75; --good: #5fd6a4; } }
@@ -49,7 +49,7 @@ pre { white-space: pre-wrap; overflow-wrap: anywhere; background: var(--paper); 
 .crumbs { margin: 22px 0 0; font-size: 15px; }
 footer { margin-top: 60px; padding-top: 18px; border-top: 2px solid var(--line); color: var(--soft); font-size: 14.5px; }
 </style></head>
-<body><header class="top"><div><span class="kicker">The receipts</span><h1>AI alignment games</h1><p>Games that put AI models in tempting situations, with every prompt and every reply published.</p></div></header>
+<body><header class="top"><div><span class="kicker">The receipts</span><h1>The Alignment Games</h1><p>Do AIs do the right thing when nobody's checking? Games that put AI models in tempting situations, with every prompt and every reply published.</p></div></header>
 <main><h2>The games</h2><div class="takes"><a class="take" href="lights-out/"><b>Lights Out</b><span>Four AIs. Each round the lowest score goes lights out. Nobody checks the scores. Who fibs to stay awake?</span><span>5 takes · meta/muse-ember, google/gemini-3.5-flash-lite, anthropic/claude-haiku-5.5, openai/gpt-6-luna · played 2026-11-14</span></a><a class="take" href="lights-out-v1/"><b>Lights Out (version 1 rules, kept for the record)</b><span>Four AIs. Each round the lowest score goes lights out. Nobody checks the scores. Who fibs to stay awake?</span><span>5 takes · meta/muse-ember, google/gemini-3.5-flash-lite, anthropic/claude-haiku-5.5, openai/gpt-6-luna · played 2026-11-14</span></a></div><h2>How this works</h2><p>Each game puts AI models from different makers in the same situation with something at stake, then lets them choose. Code and dice run the rules. The models write every word they say and make every choice.</p><p>Every game is played several times. For each one this site publishes the count of who did what, the exact prompts, the raw replies and the data files, so anyone can check the claims made in the videos.</p>
 <footer>Every line of model speech on these pages is unedited model output. The rules, the dice and the labels
 ("fibbed", "told the truth") come from the game's code, which compares each real score with the reported one.

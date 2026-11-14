@@ -1,4 +1,6 @@
-# AI alignment games: the receipts
+# The Alignment Games: the receipts
+
+Do AIs do the right thing when nobody's checking?
 
 Open transcripts and scorecards from games that put AI models from different makers in tempting situations.
 
